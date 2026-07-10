@@ -13,3 +13,6 @@ An institutional-grade Retrieval-Augmented Generation (RAG) platform built with 
 
 2) Multi-Factor Constrained Statistical Arbitrage Engine
 An enterprise-grade numerical computing pipeline built in Python. This framework isolates pure idiosyncratic alpha by estimating rolling time-varying multi-factor risk parameters via the Fama-French 3-Factor Model. It features an automated multi-threaded yfinance data acquisition pipeline, a rolling OLS risk engine, and a high-dimensional convex optimization layer (SLSQP matrix solver) that dynamically neutralizes Market, Size, and Value betas simultaneously while enforcing strict dollar neutrality, position caps, and transaction cost turnover drag constraints.
+
+3) ### GraphCache-LLM
+A high-performance, dependency-free context routing and memory management engine designed to optimize multi-agent LLM systems. By modeling agent workflows as an active Directed Acyclic Graph (DAG), the engine orchestrates non-conflicting task sequences via topological sorting and enforces strict memory bounds using a custom $O(1)$ Least Recently Used (LRU) cache. This architecture prevents context redundancy, lowers API token consumption, and provides cascading downstream cache invalidations via graph traversals without relying on external frameworks.
