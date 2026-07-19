@@ -13,9 +13,9 @@ def run_backtest(test_df: pd.DataFrame):
     df['Cum_Benchmark'] = (1 + df['Return']).cumprod()
     df['Cum_Strategy'] = (1 + df['Strategy_Return']).cumprod()
     
-    total_strat_return = df['Cum_Strategy'].iloc[-1] - 1
+    total_strat_return = df['Cum_Strategy'].iloc[-1] - 1 # need last row's value
     total_bench_return = df['Cum_Benchmark'].iloc[-1] - 1
-    
+    #diff of above two gives alpha
     # Quantitative Risk Assessment (Sharpe Ratio calculation)
     sharpe = (df['Strategy_Return'].mean() / (df['Strategy_Return'].std() + 1e-9)) * np.sqrt(252)
     
@@ -23,7 +23,7 @@ def run_backtest(test_df: pd.DataFrame):
     print(f"ML Strategy Return : {total_strat_return:.2%}")
     print(f"Benchmark Return   : {total_bench_return:.2%}")
     print(f"Strategy Sharpe    : {sharpe:.2f}")
-    print("="*30)
+    print("="*30)  # to make output look good
     
     # Save visualization plot locally
     plt.figure(figsize=(10, 5))
