@@ -1,0 +1,8 @@
+"""
+The Browser Sends the JSON Package: The browser packages your ticker string into a formal web request format and sends it over to localhost.  
+Uvicorn Catches It: Uvicorn captures the request on port 8000 and hands the ticker string to the predict_ticker function inside api.py.
+The Data Ingestion Triggers: Your code leaves your laptop, goes out across the real internet to Yahoo Finance, downloads the historical stock history table for "AAPL", and brings it into your RAM as a pandas DataFrame.  
+Features & Arrays are Built: The DataFrame passes to features.py where it instantly calculates the daily returns, the 10/30 moving average ratios, and the RSI momentum arrays.
+The Brain Predicts: The clean data array is passed into model.py where your Random Forest classifier splits the rows, learns the patterns, reads the final day's indicators, and generates its final prediction string: "UP" or "DOWN". 
+The Response Completes: The function packages this final answer alongside your metadata into a clean Python dictionary. FastAPI converts it back into JSON text, hands it to Uvicorn, and Uvicorn prints it beautifully right inside your browser window.
+"""
